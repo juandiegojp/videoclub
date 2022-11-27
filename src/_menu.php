@@ -1,6 +1,6 @@
 <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
-        <a href="https://flowbite.com/" class="flex items-center">
+        <a href="/index.php" class="flex items-center">
             <img src="https://spq17-18.github.io/BSPQ18-S3/black_film_roll_logo_png_by_bssindex-d9uh0mm.png" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">VideoClub</span>
         </a>
