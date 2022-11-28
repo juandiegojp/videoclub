@@ -17,9 +17,11 @@ INSERT INTO peliculas (nombre, genero, anyo, img, precio)
            ('Las colinas tienen ojos', 'Terror', 2006, 'colinas2006.jpg', 8.99),
            ('Escupiré sobre tu tumba', 'Terror', 2010, 'tumba.jpg', 5.99),
            ('La ciudad de las estrellas', 'Musical', 2016,  'lalaland.jpg',12.99),
-           ('Cats', 'Musical', 2019, 'cats.jpg', 9.99),
+           ('Cats', 'Musical', 2019, 'cats2019.jpg', 9.99),
            ('Pink Flamingos', 'Bizarro', 1972, 'pink.jpg', 4.99),
            ('Scary Movie', 'Comedia', 2000, 'scarymovie.jpg', 12.99),
            ('Me llaman Radio', 'Drama', 2003, 'radio.jpg', 15.99),
+           ('La forma del agua', 'Fantasía', 2017, 'agua.jpg', 9.99),
+           ('El laberinto del fauno', 'Fantasía', 2006, 'fauno.jpg', 9.99),
            ('Los chicos del barrio', 'Drama', 1991, 'barrio.jpg', 15.99)
            ;
