@@ -9,6 +9,14 @@ CREATE TABLE peliculas (
     precio numeric(7, 2) NOT NULL
 );
 
+DROP TABLE IF EXISTS usuarios CASCADE;
+
+CREATE TABLE usuarios (
+    id bigserial PRIMARY KEY,
+    usuario varchar(255) NOT NULL,
+    password varchar(255) NOT NULL
+);
+
 -- Carga inicial de datos de prueba:
 
 INSERT INTO peliculas (nombre, genero, anyo, img, precio)
@@ -25,3 +33,7 @@ INSERT INTO peliculas (nombre, genero, anyo, img, precio)
            ('El laberinto del fauno', 'Fantasía', 2006, 'fauno.jpg', 9.99),
            ('Los chicos del barrio', 'Drama', 1991, 'barrio.jpg', 15.99)
            ;
+
+INSERT INTO usuarios (usuario, password)
+    VALUES ('admin', crypt('admin', gen_salt('bf', 10))),
+           ('pepe', crypt('pepe', gen_salt('bf', 10)));
