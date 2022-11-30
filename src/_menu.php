@@ -5,18 +5,21 @@
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">VideoManía</span>
         </a>
         <div class="flex items-center md:order-2">
-            <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                <span class="sr-only">Open user menu</span>
-                <img class="w-8 h-8 rounded-full" src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png" alt="user photo">
-            </button>
+            <?php if (\App\Tablas\Usuario::esta_logueado()) : ?>
+                <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="w-8 h-8 rounded-full" src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png" alt="user photo">
+                </button>
+            <?php else : ?>
+                <a href="/login.php" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Login</a>
+            <?php endif ?>
             <!-- Dropdown menu -->
             <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
-                <div class="px-4 py-3">
-                    <span class="block text-sm text-gray-900 dark:text-white">
-                        USUARIO
-                    </span>
-                    <!-- <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span> -->
-                </div>
+                <?php if (\App\Tablas\Usuario::esta_logueado()) : ?>
+                    <div class="px-4 py-3">
+                        <span class="block text-sm text-gray-900 dark:text-white"><?= hh(\App\Tablas\Usuario::logueado()->usuario) ?></span>
+                    </div>
+                <?php endif ?>
                 <ul class="py-1" aria-labelledby="user-menu-button">
                     <li>
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
@@ -34,7 +37,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="block font-bold px-4 py-2 text-sm text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                        <a href="/logout.php" class="block font-bold px-4 py-2 text-sm text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                             Salir
                         </a>
                     </li>
@@ -47,6 +50,7 @@
                 </svg>
             </button>
         </div>
+        <?php if (\App\Tablas\Usuario::esta_logueado() && \App\Tablas\Usuario::logueado()->es_admin()) : ?>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
             <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
@@ -66,5 +70,6 @@
                 </li>
             </ul>
         </div>
+        <?php endif ?>
     </div>
 </nav>

@@ -25,6 +25,7 @@
 
 <body>
     <?php
+    require_once('../../vendor/autoload.php');
     require '../../src/auxiliar.php';
     require_once '../../src/_menu.php';
     require_once '../../src/_modales.php';

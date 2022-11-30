@@ -12,7 +12,8 @@
 
 <body>
     <?php
-    require '../src/auxiliar.php';
+    
+    require_once '../src/auxiliar.php';
     $pdo = conectar();
     $sent = $pdo->query('SELECT * FROM peliculas ORDER BY genero');
     require '../src/_menu.php';
